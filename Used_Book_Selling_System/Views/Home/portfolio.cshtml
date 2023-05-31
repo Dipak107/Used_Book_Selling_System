@@ -1,0 +1,327 @@
+﻿@model IList<Used_Book_Selling_System.Models.BookwithOwner>
+@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Portfolio - The Book Exchange Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/assets/img/favicon.png" rel="icon">
+    <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="~/assets/vendor/owl.carousel/~/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="search-filter.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Template Main CSS File -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: The Book Exchange - v2.2.0
+    * Template URL: https://bootstrapmade.com/The Book Exchange-multipurpose-bootstrap-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+    <style>
+        img {
+            padding-left: 100px;
+        }
+
+        #desc {
+            margin-left: 100px;
+        }
+        #searchBtn{
+            margin-left:1030px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ======= Top Bar ======= -->
+    <section id="topbar" class="d-none d-lg-block">
+        <div class="container d-flex">
+            <div class="contact-info mr-auto">
+
+
+            </div>
+            <div class="social-links">
+                <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+                <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+                <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+                <a href="#" class="skype"><i class="icofont-skype"></i></a>
+                <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Header ======= -->
+    <header id="header">
+        <div class="container d-flex">
+
+            <div class="logo mr-auto">
+                <h1 class="text-primary"><a href="index.html">The Book Exchange</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+
+            <nav class="nav-menu d-none d-lg-block ">
+                <ul>
+                    <li class="active"><a href="@Url.Action("home","Home")">Home</a></li>
+                    <li><a href="@Url.Action("about","Home")">About</a></li>
+
+                    <li><a href="@Url.Action("portfolio","Home")">Books</a></li>
+
+
+                    @if (Session["last_name"] != null)
+                    {
+                        <li><a href="@Url.Action("profile","Home")">Profile</a></li>
+                        <li><a href="@Url.Action("logout","Home")">Logout</a></li>
+
+
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("login","Home")">LogIn</a></li>
+                        <li><a href="@Url.Action("register","Home")">Registration</a></li>
+                    }
+
+
+                    <li><a href="@Url.Action("contact","Home")">Contact</a></li>
+
+                </ul>
+            </nav><!-- .nav-menu -->
+
+        </div>
+    </header><!-- End Header -->
+
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Books</h2>
+                    <ol>
+                        <li><a href="@Url.Action("home","Home")">Home</a></li>
+                        <li>Books</li>
+                    </ol>
+                </div>
+
+            </div>
+
+            <form action="@Url.Action("portfolio","Home")">
+            <div class="container">
+                <div class="row searchFilter">
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <select class="form-select form-select-sm col-12" aria-label=".form-select-sm example" name="searchby">
+                                <option selected>Search By</option>
+                                <option value="1">Book Title</option>
+                                <option value="2">Author Name</option>
+                                <option value="3">Publisher Name</option>
+                            </select>
+                            <input  id="table_filter" type="text" class="form-control" aria-label="Text input with segmented button dropdown" name="search">
+
+
+                            <button id="searchBtn" type="submit" class="btn btn-secondary btn-search"><span class="glyphicon glyphicon-search">&nbsp;</span> <span class="label-icon">Search</span></button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- ======= Portfolio Section ======= -->
+
+
+            <section id="portfolio" class="portfolio">
+                <div class="container">
+
+
+
+                    <div class="row portfolio-container" data-aos="fade-up">
+
+                        @foreach (var item in Model)
+                        {
+                            var base64 = Convert.ToBase64String(item.image);
+                            var imgsrc = String.Format("data:image/jpg;base64,{0}", base64);
+
+
+                            using (Html.BeginForm("portfolio_details", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <div class="col-lg-4 col-md-6 portfolio-item ">
+                                    <img src="@imgsrc" height="400px" width="400px" alt="" value="@imgsrc">
+                                    <input type="hidden" name="title" value="@item.title" />
+                                    <input type="hidden" name="edition" value="@item.edittion" />
+                                    <input type="hidden" name="author" value="@item.author" />
+                                    <input type="hidden" name="publisher" value="@item.publisher" />
+                                    <input type="hidden" name="language" value="@item.language" />
+                                    <input type="hidden" name="btype" value="@item.btype" />
+                                    <input type="hidden" name="price" value="@item.price" />
+                                    <input type="hidden" name="image" value="@imgsrc" />
+                                    <input type="hidden" name="old" value="@item.old" />
+                                    <input type="hidden" name="condition" value="@item.condition" />
+                                    <input type="hidden" name="posted_date" value="@item.posted_date" />
+                                    <input type="hidden" name="copies" value="@item.copies" />
+
+                                    <input type="hidden" name="seller_first_name" value="@item.seller_first_name" />
+                                    <input type="hidden" name="seller_last_name" value="@item.seller_last_name" />
+                                    <input type="hidden" name="seller_city" value="@item.seller_city" />
+                                    <input type="hidden" name="seller_contact_no" value="@item.seller_contact_no" />
+
+                                    <input type="hidden" name="seller_email" value="@item.seller_email" />
+                                    <input type="hidden" name="seller_id" value="@item.seller_id" />
+
+
+                                    <div class="portfolio-info" id="desc">
+                                        @*@{
+                                        Session["title"] = item.title;
+                                        Session["edition"] = item.edittion;
+                                        Session["author"] = item.author;
+                                        Session["publisher"] = item.publisher;
+                                        Session["language"] = item.language;
+                                        Session["btype"] = item.btype;
+                                        Session["price"] = item.price;
+                                        Session["image"] = item.image;
+                                        Session["old"] = item.old;
+                                        Session["condition"] = item.condition;
+                                        Session["posted_date"] = item.posted_date;
+                                        Session["copies"] = item.copies;
+                                        Session["seller_first_name"] = item.seller_first_name;
+                                        Session["seller_last_name"] = item.seller_last_name;
+                                        Session["seller_city"] = item.seller_city;
+                                        Session["seller_contact_no"] = item.seller_contact_no;
+                                    }*@
+
+
+                                        <a href="@imgsrc" data-gall="portfolioGallery" class="venobox preview-link" id="img"><i class="bx bx-plus"></i></a>
+                                        <div id="books">
+                                            <a title="More Details"><i class="bx bx-link"></i></a>
+
+                                            <input type="submit" name="btn" value="view" />
+                                            @if (item.islocked.Equals("0"))
+                                            {<input type="submit" name="btn" value="Lock" />}
+                                            else
+                                            { <label>Locked </label>}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+
+
+                    </div>
+
+                </div>
+            </section><!-- End Portfolio Section -->
+
+</main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3>The Book Exchange</h3>
+                        <p>
+                            A108 Adam Street <br>
+                            New York, NY 535022<br>
+                            United States <br><br>
+                            <strong>Phone:</strong> +917874214109<br>
+                            <strong>Email:</strong> rajputdevil100@gmail.com<br>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 footer-links offset-1 ">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("home","Home")">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("about","Home")">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("portfolio","Home")">Book</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("contact","Home")">FeedBack</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 footer-links ">
+                        <h4>Book Store </h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.goodreads.com/">Good Reads</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.librarything.com/">Library Things</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://bookish.netgalley.com/">Bookish</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.bookbub.com/welcome">BookBub</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.whichbook.net/">Which Book</a></li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-md-flex py-4">
+
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>The Book Exchange</span></strong>. All Rights Reserved
+                </div>
+
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="~/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="~/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/assets/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+
+</html>

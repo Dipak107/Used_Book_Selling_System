@@ -1,0 +1,23 @@
+﻿@model IList<Used_Book_Selling_System.Models.ImageMaster>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>showimage</title>
+</head>
+<body>
+    <div> 
+        @foreach(var item in Model)
+        {
+            var base64 = Convert.ToBase64String(item.image);
+            var imgsrc = String.Format("data:image/jpg;base64,{0}", base64);
+            <img src='@imgsrc' />
+        }
+    </div>
+</body>
+</html>

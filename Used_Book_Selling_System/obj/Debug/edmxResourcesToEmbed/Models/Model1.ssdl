@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl__book">
+    <Key>
+      <PropertyRef Name="seller_id" />
+    </Key>
+    <Property Name="seller_id" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="edition" Type="int" Nullable="false" />
+    <Property Name="author" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="publisher" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="language" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="book_type" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="price" Type="float" Nullable="false" />
+    <Property Name="image" Type="varbinary(max)" Nullable="false" />
+    <Property Name="old" Type="int" Nullable="false" />
+    <Property Name="book_condition" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="discount" Type="float" Nullable="false" />
+    <Property Name="posted_date" Type="datetime" Nullable="false" />
+    <Property Name="copies" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BookModelStoreContainer">
+    <EntitySet Name="tbl__book" EntityType="Self.tbl__book" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

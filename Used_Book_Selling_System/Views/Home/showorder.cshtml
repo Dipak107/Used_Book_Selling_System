@@ -1,0 +1,404 @@
+﻿@model IList<Used_Book_Selling_System.Models.BookwithOwner>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css' />
+    <style>
+        body {
+            background: #ecf1f5;
+            font: 14px "Open Sans", sans-serif;
+            text-align: center;
+        }
+
+        .tile {
+            width: 100%;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 2px 3px -1px rgba(151, 171, 187, 0.7);
+            float: left;
+            transform-style: preserve-3d;
+            margin: 10px 5px;
+        }
+
+        .header {
+            border-bottom: 1px solid #ebeff2;
+            padding: 19px 0;
+            text-align: center;
+            color: #59687f;
+            font-size: 600;
+            font-size: 19px;
+            position: relative;
+        }
+
+        .banner-img {
+            padding: 5px 5px 0;
+        }
+
+            .banner-img img {
+                width: 100%;
+            }
+
+        .dates {
+            border: 1px solid #ebeff2;
+            border-radius: 5px;
+            padding: 20px 0px;
+            margin: 10px 20px;
+            font-size: 16px;
+            color: #5aadef;
+            font-weight: 600;
+            overflow: auto;
+        }
+
+            .dates div {
+                float: left;
+                width: 50%;
+                text-align: center;
+                position: relative;
+            }
+
+            .dates strong,
+            .stats strong {
+                display: block;
+                color: #adb8c2;
+                font-size: 11px;
+                font-weight: 700;
+            }
+
+            .dates span {
+                width: 1px;
+                height: 40px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                background: #ebeff2;
+            }
+
+        .stats {
+            border-top: 1px solid #ebeff2;
+            background: #f7f8fa;
+            overflow: auto;
+            padding: 15px 0;
+            font-size: 16px;
+            color: #59687f;
+            font-weight: 600;
+            border-radius: 0 0 5px 5px;
+        }
+
+            .stats div {
+                border-right: 1px solid #ebeff2;
+                width: 33.33333%;
+                float: left;
+                text-align: center
+            }
+
+                .stats div:nth-of-type(3) {
+                    border: none;
+                }
+
+        div.footer {
+            text-align: right;
+            position: relative;
+            margin: 20px 5px;
+        }
+
+            div.footer a.Cbtn {
+                padding: 10px 25px;
+                background-color: #DADADA;
+                color: #666;
+                margin: 10px 2px;
+                text-transform: uppercase;
+                font-weight: bold;
+                text-decoration: none;
+                border-radius: 3px;
+            }
+
+            div.footer a.Cbtn-primary {
+                background-color: #5AADF2;
+                color: #FFF;
+            }
+
+                div.footer a.Cbtn-primary:hover {
+                    background-color: #7dbef5;
+                }
+
+            div.footer a.Cbtn-danger {
+                background-color: #fc5a5a;
+                color: #FFF;
+            }
+
+                div.footer a.Cbtn-danger:hover {
+                    background-color: #fd7676;
+                }
+
+
+        #c {
+            margin-left: 50px;
+        }
+
+        #l {
+            margin-top: 5px;
+            margin-left: 10px;
+        }
+
+        #ll {
+            width: 70px;
+            margin-top: -10px;
+        }
+
+        button {
+            margin-left: 140px;
+            margin-top: -50px;
+            width: 100px;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>The Book Exchange Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/assets/img/favicon.png" rel="icon">
+    <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="~/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: The Book Exchange - v2.2.0
+    * Template URL: https://bootstrapmade.com/The Book Exchange-multipurpose-bootstrap-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Top Bar ======= -->
+    <section id="topbar" class="d-none d-lg-block">
+        <div class="container d-flex">
+            <div class="contact-info mr-auto">
+                <i class="icofont-user"></i><a>welcome @ViewBag.username</a>
+                <i class="icofont-location-pin"></i> @ViewBag.location
+            </div>
+            <div class="social-links">
+                <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+                <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+                <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+                <a href="#" class="skype"><i class="icofont-skype"></i></a>
+                <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Header ======= -->
+    <header id="header">
+        <div class="container d-flex">
+
+            <div class="logo mr-auto">
+                <h1 class="text-primary"><a href="index.html">The Book Exchange</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+
+            <nav class="nav-menu d-none d-lg-block ">
+                <ul>
+                    <li class="active"><a href="@Url.Action("home","Home")">Home</a></li>
+                    <li><a href="@Url.Action("about","Home")">About</a></li>
+
+                    <li><a href="@Url.Action("portfolio","Home")">Books</a></li>
+
+
+                    @if (Session["last_name"] != null)
+                    {
+                        <li><a href="@Url.Action("profile","Home")">Profile</a></li>
+                        <li><a href="@Url.Action("logout","Home")">Logout</a></li>
+
+
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("login","Home")">LogIn</a></li>
+                        <li><a href="@Url.Action("register","Home")">Registration</a></li>
+                    }
+
+
+                    <li><a href="@Url.Action("contact","Home")">Contact</a></li>
+
+                </ul>
+            </nav><!-- .nav-menu -->
+
+        </div>
+    </header><!-- End Header -->
+ 
+    @if (Model.Count==0)
+    {
+        <center><h2>Empty!!!!</h2></center>
+    }
+
+
+    @foreach (var item in Model)
+    {
+
+        var base64 = Convert.ToBase64String(item.image);
+        var imgsrc = String.Format("data:image/jpg;base64,{0}", base64);
+
+
+        <form method="post" action="@Url.Action("soldbook","Home")">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="tile">
+                            <div class="wrapper">
+                                <div class="header">@item.title</div>
+
+                                <div class="banner-img img-fluid">
+                                    <img src="@imgsrc" alt="Image 1">
+                                </div>
+
+                                <div class="dates">
+                                    <div class="start">
+                                        <strong>Book Price</strong>@item.price
+                                        <span></span>
+                                    </div>
+                                    <div class="ends">
+                                        <strong>Author</strong>@item.author
+                                    </div>
+
+                                </div>
+
+                                <div class="stats">
+
+                                    <div>
+                                        <strong>Buyer Name</strong>  @item.seller_last_name
+                                    </div>
+
+                                    <div id="c">
+                                        <strong>Buyer Contact:</strong> @item.seller_contact_no
+                                    </div>
+
+                                    <div>
+                                        <input type="hidden" name="title" value="@item.title" />
+                                        <input type="hidden" name="author" value="@item.author" />
+                                        <label id="l">Quantity(sold)</label><input type="text" name="quantity" id="ll" required />
+                                        <button type="submit" class="btn btn-primary">Sold</button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3>The Book Exchange</h3>
+                        <p>
+                            A108 Adam Street <br>
+                            New York, NY 535022<br>
+                            United States <br><br>
+                            <strong>Phone:</strong> +917874214109<br>
+                            <strong>Email:</strong> rajputdevil100@gmail.com<br>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 footer-links offset-1 ">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("home","Home")">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("about","Home")">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("portfolio","Home")">Book</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("contact","Home")">FeedBack</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 footer-links ">
+                        <h4>Book Store </h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.goodreads.com/">Good Reads</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.librarything.com/">Library Things</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://bookish.netgalley.com/">Bookish</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.bookbub.com/welcome">BookBub</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.whichbook.net/">Which Book</a></li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-md-flex py-4">
+
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>The Book Exchange</span></strong>. All Rights Reserved
+                </div>
+
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="~/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="~/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/assets/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+
+
+</body>
+
+</html>

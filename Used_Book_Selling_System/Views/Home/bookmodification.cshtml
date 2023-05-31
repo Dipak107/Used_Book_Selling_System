@@ -1,0 +1,339 @@
+﻿@model IList<String>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>addboook</title>
+
+
+    <!-- Favicons -->
+    <link href="~/assets/img/favicon.png" rel="icon">
+    <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="~/assets/vendor/owl.carousel/~/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style>
+        .note {
+            text-align: center;
+            height: 80px;
+            background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+            color: #fff;
+            font-weight: bold;
+            line-height: 80px;
+        }
+
+        .form-content {
+            padding: 5%;
+            border: 1px solid #ced4da;
+            margin-bottom: 2%;
+        }
+
+        .form-control {
+            border-radius: 1.5rem;
+        }
+
+        .btnSubmit {
+            border: none;
+            border-radius: 1.5rem;
+            padding: 1%;
+            width: 20%;
+            cursor: pointer;
+            background: #0062cc;
+            color: #fff;
+        }
+
+        #op {
+            margin-top: -40px;
+            margin-left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header">
+        <div class="container d-flex">
+
+            <div class="logo mr-auto">
+                <h1 class="text-primary"><a href="index.html">The Book Exchange</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+
+            <nav class="nav-menu d-none d-lg-block ">
+                <ul>
+                    <li class="active"><a href="@Url.Action("home","Home")">Home</a></li>
+                    <li><a href="@Url.Action("about","Home")">About</a></li>
+
+                    <li><a href="@Url.Action("portfolio","Home")">Books</a></li>
+
+
+                    @if (Session["last_name"] != null)
+                    {
+                        <li><a href="@Url.Action("profile","Home")">Profile</a></li>
+                        <li><a href="@Url.Action("logout","Home")">Logout</a></li>
+
+
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("login","Home")">LogIn</a></li>
+                        <li><a href="@Url.Action("register","Home")">Registration</a></li>
+                    }
+
+
+                    <li><a href="@Url.Action("contact","Home")">Contact</a></li>
+
+                </ul>
+            </nav><!-- .nav-menu -->
+
+        </div>
+    </header><!-- End Header -->
+
+
+
+    @using (Html.BeginForm("updatebook", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+
+
+
+
+
+
+
+
+        <div class="container register-form">
+            <div class="form">
+                <div class="note">
+                    <b><p>Welcome @Session["last_name"].ToString() Update your Book</p></b>
+                </div>
+
+                <div class="form-content">
+                    <div class="row">
+
+                        <div class="col-md-6 ">
+                            <label>Book Title</label>
+                            <div class="form-group " id="d">
+                                <input type="text" class="form-control" placeholder="Book Title *" name="title" value="@Model[0]" />
+                                <input type="hidden" name="originaltitle" value="@Model[0]" />
+                                <input type="hidden" name="originalauthor" value="@Model[2]" />
+                            </div>
+                            <label>Book Edition</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Book Edition *" name="edition" value="@Model[1]" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <label>Book Author</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Book Author *" name="author" value="@Model[2]" />
+                            </div>
+                            <label>Book Publisher</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="publisher *" name="publisher" value="@Model[3]" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Book Price</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="price *" name="price" value="@Model[6]" />
+                            </div>
+                            <label>Used (Months)</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="old *" name="old" value="@Model[7]" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Book Language</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="language *" name="language" value="@Model[4]" />
+                            </div>
+                            <label>Book Discount</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control offset-12" placeholder="discount *" name="discount" value="@Model[9]" />
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 ">
+                            <label>Book Copies</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Copies *" name="copies" value="@Model[10]" />
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>Book Condition</label>
+                            <div class="form-group">
+                                <input type="radio" name="condition" value="@Model[8]" checked />
+                                Well<input type="radio" value="Well" name="condition" />
+                                Good <input type="radio" value="Good" name="condition" />
+                                Poor <input type="radio" value="Poor" name="condition" />
+
+
+                            </div>
+
+
+                            <div class="form-group" id="op">
+                                <label>Book Type</label>
+                                <select name="btype">
+
+                                         <option value="@Model[5]" selected="selected">@Model[5]</option>
+                                        <option value="Magzine" >Magzine</option>
+                                    
+
+                                        <option value="Novel" >Novel</option>
+                                    
+                                   
+                                        <option value="Story" >Story</option>
+                                  
+                                        <option value="Science" >Science</option>
+                                    
+                                  
+                                        <option value="Academic" >Academic</option>
+                                   
+                                   
+                                        <option value="Programming" >Programming</option>
+                                   
+                                  
+                                        <option value="Other" >Other</option>
+                                    
+
+
+
+
+
+
+
+
+
+                                </select>
+
+                            </div>
+
+
+                        </div>
+
+                        <br />
+                        
+
+                    </div>
+                    <button type="submitc" class="btnSubmit my-0">Update Book</button>
+                </div>
+            </div>
+        </div>
+
+
+    }
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3>The Book Exchange</h3>
+                        <p>
+                            A108 Adam Street <br>
+                            New York, NY 535022<br>
+                            United States <br><br>
+                            <strong>Phone:</strong> +917874214109<br>
+                            <strong>Email:</strong> rajputdevil100@gmail.com<br>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 footer-links offset-1 ">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("home","Home")">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("about","Home")">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("portfolio","Home")">Book</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="@Url.Action("contact","Home")">FeedBack</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 footer-links ">
+                        <h4>Book Store </h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.goodreads.com/">Good Reads</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.librarything.com/">Library Things</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://bookish.netgalley.com/">Bookish</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.bookbub.com/welcome">BookBub</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.whichbook.net/">Which Book</a></li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-md-flex py-4">
+
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>The Book Exchange</span></strong>. All Rights Reserved
+                </div>
+
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="~/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="~/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/assets/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+</html>

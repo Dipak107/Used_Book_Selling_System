@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl__book">
+    <Key>
+      <PropertyRef Name="seller_id" />
+    </Key>
+    <Property Name="seller_id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="edition" Type="Int32" Nullable="false" />
+    <Property Name="author" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="publisher" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="language" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="book_type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="price" Type="Double" Nullable="false" />
+    <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="old" Type="Int32" Nullable="false" />
+    <Property Name="book_condition" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="discount" Type="Double" Nullable="false" />
+    <Property Name="posted_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="copies" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BookEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl__book" EntityType="Self.tbl__book" />
+  </EntityContainer>
+</Schema>
